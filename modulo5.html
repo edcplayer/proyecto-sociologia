@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 5 - Sociología Web</title>
+  <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Sociología Web</div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="modulo1.html">Mód. 1</a></li>
+        <li><a href="modulo2.html">Mód. 2</a></li>
+        <li><a href="modulo3.html">Mód. 3</a></li>
+        <li><a href="modulo4.html">Mód. 4</a></li>
+        <li><a href="modulo5.html" class="active">Mód. 5</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Módulo 5: Corrientes Sociológicas</h2>
+      <p>Selecciona una corriente teórica para revisar su concepto:</p>
+
+      <div class="accordion-container">
+        <div class="accordion-item">
+          <button onclick="toggleAccordion('positivismo')" class="accordion-header">
+            <span>Positivismo</span>
+            <span id="icon-positivismo">+</span>
+          </button>
+          <div id="positivismo" class="accordion-content hidden">
+            <p>Sostiene que el conocimiento debe provenir estrictamente de hechos verificables mediante el método científico.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button onclick="toggleAccordion('materialismo')" class="accordion-header">
+            <span>Materialismo Histórico</span>
+            <span id="icon-materialismo">+</span>
+          </button>
+          <div id="materialismo" class="accordion-content hidden">
+            <p>Analiza el cambio social derivado de la producción económica y las tensiones entre clases sociales.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTONES DE RECORRIDO -->
+      <div class="module-nav">
+        <a href="modulo4.html" class="btn-nav">&larr; Módulo 4</a>
+        <a href="quiz.html" class="btn-nav btn-next">Ir al Quiz &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Portal de Sociología - Proyecto de Ingeniería en Sistemas</p>
+  </footer>
+
+  <script>
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      const isHidden = content.classList.contains('hidden');
+      content.classList.toggle('hidden');
+      icon.textContent = isHidden ? '-' : '+';
+    }
+  </script>
+
+</body>
+</html>

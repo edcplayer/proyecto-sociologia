@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - Sociología Web</title>
+  <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Sociología Web</div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="modulo1.html">Mód. 1</a></li>
+        <li><a href="modulo2.html">Mód. 2</a></li>
+        <li><a href="modulo3.html">Mód. 3</a></li>
+        <li><a href="modulo4.html">Mód. 4</a></li>
+        <li><a href="modulo5.html">Mód. 5</a></li>
+        <li><a href="quiz.html" class="active">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Evaluación Interactivas</h2>
+      <div class="quiz-card">
+        <form id="quizForm">
+          <p><strong>1. ¿Quién acuñó el término "Sociología"?</strong></p>
+          <label class="quiz-option"><input type="radio" name="q1" value="0"> Karl Marx</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="1"> Auguste Comte</label>
+          <label class="quiz-option"><input type="radio" name="q1" value="0"> Max Weber</label>
+          
+          <button type="button" onclick="evaluarQuiz()" class="btn-submit">Enviar Respuestas</button>
+        </form>
+        <div id="quizResult" class="quiz-result"></div>
+      </div>
+
+      <!-- BOTONES DE RECORRIDO -->
+      <div class="module-nav">
+        <a href="modulo5.html" class="btn-nav">&larr; Módulo 5</a>
+        <a href="index.html" class="btn-nav btn-next">Finalizar Recorrido &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Portal de Sociología - Proyecto de Ingeniería en Sistemas By: [Emerson Cruz , Emmanuel Heriberto Martinez ]</p>
+  </footer>
+
+  <script>
+    function evaluarQuiz() {
+      const form = document.getElementById('quizForm');
+      const selected = form.querySelector('input[name="q1"]:checked');
+      const resultDiv = document.getElementById('quizResult');
+
+      if (!selected) {
+        resultDiv.textContent = "Por favor selecciona una respuesta.";
+        resultDiv.className = "quiz-result error";
+        return;
+      }
+
+      if (selected.value === "1") {
+        resultDiv.textContent = "¡Respuesta Correcta!";
+        resultDiv.className = "quiz-result success";
+      } else {
+        resultDiv.textContent = "Respuesta Incorrecta. Inténtalo de nuevo.";
+        resultDiv.className = "quiz-result error";
+      }
+    }
+  </script>
+
+</body>
+</html>
