@@ -5,6 +5,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Módulo 3 - Sociología Web</title>
   <link rel="stylesheet" href="diseño.css">
+  <style>
+    /* Estilos específicos para la Línea de Tiempo Interactiva */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid var(--accent-purple);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.65rem;
+      top: 0.2rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-purple);
+      border: 3px solid #0d1b2a;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-dot,
+    .timeline-item.active .timeline-dot {
+      background: var(--accent-blue);
+      transform: scale(1.3);
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-content {
+      border-color: var(--accent-blue);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .timeline-header strong {
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .timeline-year {
+      color: var(--accent-blue);
+      font-weight: bold;
+      font-size: 0.95rem;
+      background: rgba(0, 210, 255, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+    }
+
+    .timeline-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, margin-top 0.3s ease, padding-top 0.3s ease;
+      color: #c9d1d9;
+    }
+
+    .timeline-item.active .timeline-details {
+      max-height: 500px;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-details ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .timeline-details li {
+      margin-bottom: 0.4rem;
+    }
+
+    .click-hint {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      margin-top: 0.3rem;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,25 +122,141 @@
 
   <main>
     <section>
-      <h2>Módulo 3: Desarrollo Histórico</h2>
-      <p>Contexto de surgimiento de la Sociología como ciencia:</p>
+      <h2>Módulo 3: Desarrollo Histórico de la Sociología</h2>
+      <p class="subtitle">Contexto sociohistórico de surgimiento y acontecimientos desencadenantes</p>
 
-      <div class="timeline">
-        <div class="timeline-event">
-          <h4>Siglo XVIII - La Ilustración</h4>
-          <p>Sustitución de dogmas religiosos por el pensamiento racional y científico.</p>
-        </div>
-        <div class="timeline-event">
-          <h4>1789 - Revolución Francesa</h4>
-          <p>Desarticulación del antiguo régimen feudal e impulso de derechos ciudadanos.</p>
-        </div>
-        <div class="timeline-event">
-          <h4>Siglo XIX - Revolución Industrial</h4>
-          <p>Migración hacia urbes, surgimiento de la clase obrera y necesidad de orden social.</p>
-        </div>
+      <div class="card">
+        <h3>El Contexto Histórico General</h3>
+        <p>La Sociología no nació como una reflexión abstracta e aislada, sino como una necesidad urgente de comprender y reorganizar el orden social tras el colapso de las estructuras feudales tradicionales en Europa a finales del siglo XVIII y principios del XIX.</p>
       </div>
 
-      <!-- BOTONES DE RECORRIDO -->
+      <!-- LÍNEA DE TIEMPO INTERACTIVA Y EXTENSA -->
+      <div class="card">
+        <h3>Línea de Tiempo Sociohistórica (Siglos XVII - XIX)</h3>
+        <p class="subtitle" style="margin-bottom: 1rem; font-size: 0.9rem;">Haz clic en cada hito histórico para desplegar su impacto detallado en la Sociología</p>
+
+        <div class="timeline">
+
+          <!-- HITO 1 -->
+          <div class="timeline-item" onclick="toggleTimeline(this)">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>La Revolución Científica y el Racionalismo</strong>
+                <span class="timeline-year">Siglo XVII</span>
+              </div>
+              <span class="click-hint">&#9660; Clic para ver detalles</span>
+              <div class="timeline-details">
+                <p>El nacimiento del método científico empírico (Galileo, Newton, Descartes) cambió la forma en que el ser humano explicaba el universo físico, desplazando las explicaciones teológicas y míticas.</p>
+                <ul>
+                  <li><strong>Impacto Sociológico:</strong> Surgió la idea de que la sociedad y el comportamiento humano también podían ser estudiados mediante leyes objetivas y la observación empírica, sentando las bases del método científico social.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HITO 2 -->
+          <div class="timeline-item" onclick="toggleTimeline(this)">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>La Ilustración ("El Siglo de las Luces")</strong>
+                <span class="timeline-year">Siglo XVIII</span>
+              </div>
+              <span class="click-hint">&#9660; Clic para ver detalles</span>
+              <div class="timeline-details">
+                <p>Movimiento intelectual europeo encabezado por pensadores como Montesquieu, Voltaire, Rousseau y Diderot que colocó a la razón humana como el motor de progreso.</p>
+                <ul>
+                  <li><strong>Ataque al Dogma:</strong> Se cuestionaron las instituciones monárquicas absolutas y la autoridad religiosa indiscutible.</li>
+                  <li><strong>Contrato Social:</strong> Rousseau conceptualizó la sociedad como un acuerdo colectivo racional, dando paso a la idea de que las instituciones humanas son creadas y modificables por el propio hombre.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HITO 3 -->
+          <div class="timeline-item" onclick="toggleTimeline(this)">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>Primera Revolución Industrial</strong>
+                <span class="timeline-year">1760 – 1840</span>
+              </div>
+              <span class="click-hint">&#9660; Clic para ver detalles</span>
+              <div class="timeline-details">
+                <p>La invención de la máquina de vapor y la transición del trabajo artesanal-agrícola a la producción mecanizada en fábricas transformó radicalmente la vida económica y urbana.</p>
+                <ul>
+                  <li><strong>Urbanización Descontrolada:</strong> Migración masiva del campo a las ciudades, generando hacinamiento y pobreza urbana.</li>
+                  <li><strong>Nueva Estructura de Clases:</strong> Nace la burguesía industrial y el proletariado urbano, junto a condiciones laborales extremas (explotación, extensas jornadas, trabajo infantil).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HITO 4 -->
+          <div class="timeline-item" onclick="toggleTimeline(this)">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>La Revolución Francesa</strong>
+                <span class="timeline-year">1789</span>
+              </div>
+              <span class="click-hint">&#9660; Clic para ver detalles</span>
+              <div class="timeline-details">
+                <p>Ruptura política decisiva que derrocó la monarquía absoluta feudal e instauró el régimen republicano basado en los valores de Libertad, Igualdad y Fraternidad.</p>
+                <ul>
+                  <li><strong>Destrucción del Orden Tradicional:</strong> Demostró que las estructuras políticas y sociales no eran eternas ni divinas, sino sujetas al cambio radical.</li>
+                  <li><strong>Nacimiento de la Ciudadanía:</strong> Pasaje de súbditos a ciudadanos con derechos formales y participación sociopolítica.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HITO 5 -->
+          <div class="timeline-item" onclick="toggleTimeline(this)">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>Crisis de la Modernidad y la "Cuestión Social"</strong>
+                <span class="timeline-year">Inicios del Siglo XIX</span>
+              </div>
+              <span class="click-hint">&#9660; Clic para ver detalles</span>
+              <div class="timeline-details">
+                <p>Las secuelas combinadas del desorden político postsocial y las desigualdades del capitalismo industrial dieron origen a la denominada "Cuestión Social" (pobreza, huelgas, anomia, delincuencia y desintegración social).</p>
+                <ul>
+                  <li><strong>El Dilema del Orden:</strong> Pensadores y filósofos vieron la urgencia de crear una nueva disciplina científica dedicada exclusivamente a entender cómo mantener la cohesión social frente al caos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HITO 6 -->
+          <div class="timeline-item" onclick="toggleTimeline(this)">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <strong>Fundación Institucional de la Sociología</strong>
+                <span class="timeline-year">1838 – Siglo XIX</span>
+              </div>
+              <span class="click-hint">&#9660; Clic para ver detalles</span>
+              <div class="timeline-details">
+                <p>Auguste Comte formaliza el uso del término "Sociología" en su obra *Curso de Filosofía Positiva*, proponiendo utilizar el método científico empírico para reorganizar científicamente a la sociedad en crisis.</p>
+                <ul>
+                  <li><strong>Consolidación:</strong> Pensadores posteriores como Karl Marx, Émile Durkheim y Max Weber formalizan los métodos y escuelas de pensamiento sociológico.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+<div class="card references-card">
+  <h4>📚 Citas y Fuentes Bibliográficas</h4>
+  <ul class="references-list">
+    <li>Ritzer, G. (2012). <cite>Teoría sociológica clásica</cite> (6.ª ed.). McGraw-Hill Interamericana.</li>
+    <li>Hobsbawm, E. (2003). <cite>La era de la revolución: 1789-1848</cite>. Crítica.</li>
+  </ul>
+</div>
       <div class="module-nav">
         <a href="modulo2.html" class="btn-nav">&larr; Módulo 2</a>
         <a href="modulo4.html" class="btn-nav btn-next">Módulo 4 &rarr;</a>
@@ -55,5 +268,19 @@
     <p>&copy; 2026 Portal de Sociología - Proyecto de Ingeniería en Sistemas</p>
   </footer>
 
+  <script>
+    function toggleTimeline(element) {
+      // Cierra los otros elementos si quieres que solo uno esté abierto a la vez (opcional)
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        if (item !== element) {
+          item.classList.remove('active');
+        }
+      });
+      // Alterna la clase activa en el hito seleccionado
+      element.classList.toggle('active');
+    }
+  </script>
+
 </body>
 </html>
+

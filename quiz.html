@@ -3,8 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz - Sociología Web</title>
+  <title>Quiz Interactivo - Sociología Web</title>
   <link rel="stylesheet" href="diseño.css">
+  <style>
+    .quiz-container {
+      position: relative;
+      min-height: 280px;
+    }
+    .question-card {
+      display: none;
+    }
+    .question-card.active {
+      display: block;
+    }
+    .option-label {
+      display: block;
+      margin: 0.8rem 0;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .option-label:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--accent-blue);
+    }
+    .option-label input {
+      margin-right: 0.8rem;
+    }
+    .quiz-progress {
+      font-size: 0.9rem;
+      color: var(--accent-blue);
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    #result-screen {
+      display: none;
+    }
+    .failed-item {
+      background: rgba(255, 75, 43, 0.1);
+      border-left: 4px solid var(--accent-red);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      text-align: left;
+    }
+    .correct-item {
+      background: rgba(0, 210, 255, 0.1);
+      border-left: 4px solid var(--accent-blue);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,50 +79,213 @@
 
   <main>
     <section>
-      <h2>Evaluación Interactivas</h2>
-      <div class="quiz-card">
-        <form id="quizForm">
-          <p><strong>1. ¿Quién acuñó el término "Sociología"?</strong></p>
-          <label class="quiz-option"><input type="radio" name="q1" value="0"> Karl Marx</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="1"> Auguste Comte</label>
-          <label class="quiz-option"><input type="radio" name="q1" value="0"> Max Weber</label>
-          
-          <button type="button" onclick="evaluarQuiz()" class="btn-submit">Enviar Respuestas</button>
+      <h2>Quiz Evaluativo</h2>
+      <p class="subtitle">Responde las preguntas una a una para evaluar tus aprendizajes</p>
+
+      <div class="card quiz-container">
+
+        <!-- PREGUNTAS INTERACTIVAS -->
+        <form id="quiz-form">
+          <div class="quiz-progress" id="progress-text">Pregunta 1 de 10</div>
+
+          <!-- P1 -->
+          <div class="question-card active" data-index="1">
+            <p><strong>1. Característica principal del conocimiento científico frente al sentido común:</strong></p>
+            <label class="option-label"><input type="radio" name="q1" value="a"> Es intempestivo y no comprobable.</label>
+            <label class="option-label"><input type="radio" name="q1" value="b"> Aplica métodos rigurosos y comprobables empíricamente.</label>
+            <label class="option-label"><input type="radio" name="q1" value="c"> Se fundamenta sólo en creencias tradicionales.</label>
+          </div>
+
+          <!-- P2 -->
+          <div class="question-card" data-index="2">
+            <p><strong>2. ¿En qué rama científica se clasifica la Sociología?</strong></p>
+            <label class="option-label"><input type="radio" name="q2" value="a"> Ciencias Formales.</label>
+            <label class="option-label"><input type="radio" name="q2" value="b"> Ciencias Fácticas Sociales.</label>
+            <label class="option-label"><input type="radio" name="q2" value="c"> Ciencias Naturales Exactas.</label>
+          </div>
+
+          <!-- P3 -->
+          <div class="question-card" data-index="3">
+            <p><strong>3. Es el objeto principal de estudio de la Sociología:</strong></p>
+            <label class="option-label"><input type="radio" name="q3" value="a"> El funcionamiento neuronal individual.</label>
+            <label class="option-label"><input type="radio" name="q3" value="b"> Los hechos sociales y las estructuras colectivas.</label>
+            <label class="option-label"><input type="radio" name="q3" value="c"> Los procesos meramente biológicos.</label>
+          </div>
+
+          <!-- P4 -->
+          <div class="question-card" data-index="4">
+            <p><strong>4. Evento histórico que introdujo la producción fabril y el trabajo asalariado:</strong></p>
+            <label class="option-label"><input type="radio" name="q4" value="a"> La Revolución Industrial.</label>
+            <label class="option-label"><input type="radio" name="q4" value="b"> La Guerra de los Cien Años.</label>
+            <label class="option-label"><input type="radio" name="q4" value="c"> La Caída del Imperio Romano.</label>
+          </div>
+
+          <!-- P5 -->
+          <div class="question-card" data-index="5">
+            <p><strong>5. Pensador que acuñó la palabra "Sociología" en 1838:</strong></p>
+            <label class="option-label"><input type="radio" name="q5" value="a"> Karl Marx.</label>
+            <label class="option-label"><input type="radio" name="q5" value="b"> Auguste Comte.</label>
+            <label class="option-label"><input type="radio" name="q5" value="c"> Max Weber.</label>
+          </div>
+
+          <!-- P6 -->
+          <div class="question-card" data-index="6">
+            <p><strong>6. Autor de la teoría del Materialismo Histórico sobre la lucha de clases:</strong></p>
+            <label class="option-label"><input type="radio" name="q6" value="a"> Émile Durkheim.</label>
+            <label class="option-label"><input type="radio" name="q6" value="b"> Herbert Spencer.</label>
+            <label class="option-label"><input type="radio" name="q6" value="c"> Karl Marx.</label>
+          </div>
+
+          <!-- P7 -->
+          <div class="question-card" data-index="7">
+            <p><strong>7. Concepto desarrollado por Durkheim para definir formas de actuar coercitivas al individuo:</strong></p>
+            <label class="option-label"><input type="radio" name="q7" value="a"> Hechos Sociales.</label>
+            <label class="option-label"><input type="radio" name="q7" value="b"> Tipos Ideales.</label>
+            <label class="option-label"><input type="radio" name="q7" value="c"> Ley Positiva.</label>
+          </div>
+
+          <!-- P8 -->
+          <div class="question-card" data-index="8">
+            <p><strong>8. Exponente sociológico asociado al "Darwinismo Social":</strong></p>
+            <label class="option-label"><input type="radio" name="q8" value="a"> Claude Henri de Saint-Simon.</label>
+            <label class="option-label"><input type="radio" name="q8" value="b"> Herbert Spencer.</label>
+            <label class="option-label"><input type="radio" name="q8" value="c"> Max Weber.</label>
+          </div>
+
+          <!-- P9 -->
+          <div class="question-card" data-index="9">
+            <p><strong>9. Teoría que analiza la sociedad como un sistema de partes interrelacionadas en equilibrio:</strong></p>
+            <label class="option-label"><input type="radio" name="q9" value="a"> Estructural-Funcionalismo.</label>
+            <label class="option-label"><input type="radio" name="q9" value="b"> Teoría Crítica.</label>
+            <label class="option-label"><input type="radio" name="q9" value="c"> Positivismo Puro.</label>
+          </div>
+
+          <!-- P10 -->
+          <div class="question-card" data-index="10">
+            <p><strong>10. Escuela surgida en Frankfurt que cuestiona la dominación en la sociedad de consumo:</strong></p>
+            <label class="option-label"><input type="radio" name="q10" value="a"> Positivismo Comtiano.</label>
+            <label class="option-label"><input type="radio" name="q10" value="b"> Teoría Crítica.</label>
+            <label class="option-label"><input type="radio" name="q10" value="c"> Evolucionismo Social.</label>
+          </div>
+
+          <button type="button" id="next-btn" onclick="nextQuestion()" class="btn-nav btn-next" style="width: 100%; margin-top: 1.5rem; cursor: pointer;">Aceptar / Siguiente &rarr;</button>
         </form>
-        <div id="quizResult" class="quiz-result"></div>
+
+        <!-- Pantalla de Resultados -->
+        <div id="result-screen">
+          <h3 id="score-text" style="font-size: 1.6rem; text-align: center;"></h3>
+          <p id="feedback-text" style="text-align: center; margin-bottom: 1.5rem;"></p>
+          
+          <div id="review-container"></div>
+
+          <button onclick="restartQuiz()" class="btn-nav btn-next" style="width: 100%; margin-top: 1.5rem; cursor: pointer;">Intentar de Nuevo &#21061;</button>
+        </div>
+
       </div>
 
-      <!-- BOTONES DE RECORRIDO -->
       <div class="module-nav">
-        <a href="modulo5.html" class="btn-nav">&larr; Módulo 5</a>
-        <a href="index.html" class="btn-nav btn-next">Finalizar Recorrido &rarr;</a>
+        <a href="modulo5.html" class="btn-nav">&larr; Volver al Módulo 5</a>
+        <a href="index.html" class="btn-nav">Ir al Inicio</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Portal de Sociología - Proyecto de Ingeniería en Sistemas By: [Emerson Cruz , Emmanuel Heriberto Martinez ]</p>
+    <p>&copy; 2026 Portal de Sociología - Proyecto de Ingeniería en Sistemas</p>
   </footer>
 
   <script>
-    function evaluarQuiz() {
-      const form = document.getElementById('quizForm');
-      const selected = form.querySelector('input[name="q1"]:checked');
-      const resultDiv = document.getElementById('quizResult');
+    let currentStep = 1;
+    const totalQuestions = 10;
 
+    const correctAnswers = {
+      q1: { ans: 'b', text: 'Aplica métodos rigurosos y comprobables empíricamente', title: '1. Conocimiento científico vs. sentido común' },
+      q2: { ans: 'b', text: 'Ciencias Fácticas Sociales', title: '2. Clasificación de la Sociología' },
+      q3: { ans: 'b', text: 'Los hechos sociales y las estructuras colectivas', title: '3. Objeto de estudio' },
+      q4: { ans: 'a', text: 'La Revolución Industrial', title: '4. Revolución que influyó en el trabajo asalariado' },
+      q5: { ans: 'b', text: 'Auguste Comte', title: '5. Padre de la Sociología (1838)' },
+      q6: { ans: 'c', text: 'Karl Marx', title: '6. Materialismo Histórico' },
+      q7: { ans: 'a', text: 'Hechos Sociales', title: '7. Concepto de Durkheim' },
+      q8: { ans: 'b', text: 'Herbert Spencer', title: '8. Darwinismo Social' },
+      q9: { ans: 'a', text: 'Estructural-Funcionalismo', title: '9. Sociedad como sistema en equilibrio' },
+      q10: { ans: 'b', text: 'Teoría Crítica', title: '10. Escuela de Frankfurt' }
+    };
+
+    function nextQuestion() {
+      const selected = document.querySelector(`input[name="q${currentStep}"]:checked`);
+      
       if (!selected) {
-        resultDiv.textContent = "Por favor selecciona una respuesta.";
-        resultDiv.className = "quiz-result error";
+        alert('Por favor selecciona una respuesta antes de continuar.');
         return;
       }
 
-      if (selected.value === "1") {
-        resultDiv.textContent = "¡Respuesta Correcta!";
-        resultDiv.className = "quiz-result success";
+      if (currentStep < totalQuestions) {
+        document.querySelector(`.question-card[data-index="${currentStep}"]`).classList.remove('active');
+        currentStep++;
+        document.querySelector(`.question-card[data-index="${currentStep}"]`).classList.add('active');
+        document.getElementById('progress-text').innerText = `Pregunta ${currentStep} de ${totalQuestions}`;
+        
+        if (currentStep === totalQuestions) {
+          document.getElementById('next-btn').innerText = 'Finalizar y Ver Resultados';
+        }
       } else {
-        resultDiv.textContent = "Respuesta Incorrecta. Inténtalo de nuevo.";
-        resultDiv.className = "quiz-result error";
+        finishQuiz();
       }
+    }
+
+    function finishQuiz() {
+      document.getElementById('quiz-form').style.display = 'none';
+      const resultScreen = document.getElementById('result-screen');
+      resultScreen.style.display = 'block';
+
+      let score = 0;
+      const reviewContainer = document.getElementById('review-container');
+      reviewContainer.innerHTML = '<h4 style="margin-bottom: 1rem; color: var(--accent-blue);">Desglose de Respuestas:</h4>';
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const key = `q${i}`;
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        const item = correctAnswers[key];
+
+        if (selected && selected.value === item.ans) {
+          score++;
+          reviewContainer.innerHTML += `
+            <div class="correct-item">
+              <strong>✓ Pregunta ${i}:</strong> Correcta<br>
+              <small>${item.title}</small>
+            </div>`;
+        } else {
+          reviewContainer.innerHTML += `
+            <div class="failed-item">
+              <strong>✕ Pregunta ${i}:</strong> Incorrecta<br>
+              <small>${item.title}</small><br>
+              <strong style="color: #00d2ff;">Respuesta correcta:</strong> ${item.text}
+            </div>`;
+        }
+      }
+
+      document.getElementById('score-text').innerText = `Punteo: ${score} / ${totalQuestions}`;
+      
+      if (score === 10) {
+        document.getElementById('feedback-text').innerText = '¡Felicidades! Tienes un dominio total de los módulos.';
+      } else if (score >= 6) {
+        document.getElementById('feedback-text').innerText = '¡Buen trabajo! Revisa las preguntas falladas para reforzar.';
+      } else {
+        document.getElementById('feedback-text').innerText = 'Te recomendamos repasar los módulos y volver a intentarlo.';
+      }
+    }
+
+    function restartQuiz() {
+      currentStep = 1;
+      document.getElementById('quiz-form').reset();
+      document.getElementById('quiz-form').style.display = 'block';
+      document.getElementById('result-screen').style.display = 'none';
+      
+      document.querySelectorAll('.question-card').forEach(card => card.classList.remove('active'));
+      document.querySelector('.question-card[data-index="1"]').classList.add('active');
+      
+      document.getElementById('progress-text').innerText = `Pregunta 1 de ${totalQuestions}`;
+      document.getElementById('next-btn').innerText = 'Aceptar / Siguiente →';
     }
   </script>
 

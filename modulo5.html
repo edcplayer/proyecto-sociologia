@@ -25,32 +25,29 @@
 
   <main>
     <section>
-      <h2>Módulo 5: Corrientes Sociológicas</h2>
-      <p>Selecciona una corriente teórica para revisar su concepto:</p>
+      <h2>Módulo 5: Principales Corrientes y Teorías Sociológicas</h2>
+      <p class="subtitle">Enfoques teóricos fundamentales para el análisis social</p>
 
-      <div class="accordion-container">
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('positivismo')" class="accordion-header">
-            <span>Positivismo</span>
-            <span id="icon-positivismo">+</span>
-          </button>
-          <div id="positivismo" class="accordion-content hidden">
-            <p>Sostiene que el conocimiento debe provenir estrictamente de hechos verificables mediante el método científico.</p>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button onclick="toggleAccordion('materialismo')" class="accordion-header">
-            <span>Materialismo Histórico</span>
-            <span id="icon-materialismo">+</span>
-          </button>
-          <div id="materialismo" class="accordion-content hidden">
-            <p>Analiza el cambio social derivado de la producción económica y las tensiones entre clases sociales.</p>
-          </div>
-        </div>
+      <div class="card">
+        <h3>1. Positivismo Sociológico</h3>
+        <p>Sostiene que el conocimiento social debe basarse en la observación empírica y la aplicación del método científico para descubrir leyes generales.</p>
       </div>
 
-      <!-- BOTONES DE RECORRIDO -->
+      <div class="card">
+        <h3>2. Materialismo Histórico</h3>
+        <p>Sostiene que las condiciones económicas y los modos de producción determinan la superestructura política, jurídica e ideológica de la sociedad.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Estructural-Funcionalismo</h3>
+        <p>Concibe a la sociedad como un sistema interrelacionado donde cada institución (familia, escuela, estado) cumple una función clave para mantener el equilibrio.</p>
+      </div>
+
+      <div class="card">
+        <h3>4. Teoría Crítica (Escuela de Frankfurt)</h3>
+        <p>Cuestiona las formas de dominación moderna, la industria cultural, el consumismo y los riesgos del uso instrumental de la tecnología.</p>
+      </div>
+
       <div class="module-nav">
         <a href="modulo4.html" class="btn-nav">&larr; Módulo 4</a>
         <a href="quiz.html" class="btn-nav btn-next">Ir al Quiz &rarr;</a>
@@ -62,15 +59,14 @@
     <p>&copy; 2026 Portal de Sociología - Proyecto de Ingeniería en Sistemas</p>
   </footer>
 
-  <script>
-    function toggleAccordion(id) {
-      const content = document.getElementById(id);
-      const icon = document.getElementById('icon-' + id);
-      const isHidden = content.classList.contains('hidden');
-      content.classList.toggle('hidden');
-      icon.textContent = isHidden ? '-' : '+';
-    }
-  </script>
-
 </body>
 </html>
+
+<div class="card references-card">
+  <h4>📚 Citas y Fuentes Bibliográficas</h4>
+  <ul class="references-list">
+    <li>Marx, K., & Engels, F. (2014). <cite>El manifiesto del partido comunista</cite>. EDAF.</li>
+    <li>Durkheim, É. (2001). <cite>Las reglas del método sociológico</cite>. Akal.</li>
+    <li>Adorno, T. W., & Horkheimer, M. (2007). <cite>Dialéctica de la Ilustración</cite>. Trotta.</li>
+  </ul>
+</div>
