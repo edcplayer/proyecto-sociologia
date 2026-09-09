@@ -3,8 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Módulo 1 - Sociología Web</title>
+  <title>Módulo 1: Introducción a la Sociología - Sociología Web</title>
   <link rel="stylesheet" href="diseño.css">
+  <style>
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .discipline-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 1rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .discipline-card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+    }
+    .discipline-title {
+      color: var(--accent-blue);
+      font-weight: bold;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .discipline-desc {
+      font-size: 0.88rem;
+      color: #e0e6ed;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .discipline-rel {
+      font-size: 0.82rem;
+      color: #a0aab8;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 0.4rem;
+    }
+    .discipline-rel span {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,37 +69,79 @@
 
   <main>
     <section>
-      <h2>Módulo 1: Ciencia y Ciencias Sociales</h2>
-      <p class="subtitle">Delimitación conceptual y clasificación de la ciencia</p>
+      <h2>Módulo 1: Introducción a la Sociología</h2>
+      <p class="subtitle">Conceptos fundamentales, objeto de estudio y su relación con las Ciencias Sociales</p>
 
+      <!-- CONCEPTO Y OBJETO -->
       <div class="card">
-        <h3>1. Conocimiento Científico vs. Sentido Común</h3>
-        <p>El <strong>sentido común</strong> se fundamenta en experiencias inmediatas, intuiciones, costumbres y opiniones espontáneas del día a día, sin someterse a verificación objetiva. Por otro lado, el <strong>conocimiento científico</strong> se obtiene mediante un método sistemático, riguroso, crítico y comprobable empíricamente.</p>
+        <h3>1.1 ¿Qué es la Sociología?</h3>
+        <p>Es la ciencia que estudia de forma sistemática y crítica la sociedad, las instituciones sociales y las relaciones humanas. Analiza cómo las estructuras sociales, las culturas y los grupos influyen en el comportamiento, las oportunidades y las decisiones individuales.</p>
       </div>
 
-      <div class="card">
-        <h3>2. Clasificación de las Ciencias</h3>
-        <p>Las ciencias se dividen atendiendo a su objeto de estudio:</p>
-        <ul>
-          <li><strong>Ciencias Formales:</strong> Estudian entes abstractos e ideales mediante la deducción lógica (ej. Matemáticas, Lógica).</li>
-          <li><strong>Ciencias Fácticas:</strong> Estudian hechos y procesos tangibles de la realidad. Se sub-dividen en:
-            <ul>
-              <li><em>Ciencias Naturales:</em> Física, Química, Biología.</li>
-              <li><em>Ciencias Sociales:</em> Sociología, Historia, Economía, Ciencia Política.</li>
-            </ul>
-          </li>
-        </ul>
-        <p style="margin-top: 0.75rem;">La Sociología se ubica como una <strong>Ciencia Fáctica Social</strong>, aplicando la observación empírica sobre los fenómenos colectivos.</p>
+      <!-- DISCIPLINAS Y OBJETO DE ESTUDIO COMPACTO -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <h3>1.2 Disciplinas Sociales y Objeto de Estudio</h3>
+        <p style="color: #a0aab8; font-size: 0.9rem; margin-bottom: 0.8rem;">
+          La Sociología interactúa con diversas ciencias para comprender la realidad humana desde múltiples ángulos:
+        </p>
+
+        <div class="disciplines-grid">
+          
+          <div class="discipline-card">
+            <div class="discipline-title">Economía</div>
+            <div class="discipline-desc">Recursos escasos, producción, distribución y consumo de bienes.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Impacto de las relaciones de producción en las clases sociales.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Derecho</div>
+            <div class="discipline-desc">Normas jurídicas y regulación del comportamiento bajo el Estado.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Cómo las leyes cambian según la evolución social.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Historia</div>
+            <div class="discipline-desc">Sucesos pasados y evolución de las civilizaciones en el tiempo.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Contexto histórico de las estructuras actuales.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Sociología</div>
+            <div class="discipline-desc">Sociedad, hechos sociales, colectivos y dinámicas de grupo.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Eje central que integra los hallazgos de otras ciencias.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Antropología</div>
+            <div class="discipline-desc">Evolución cultural, tradiciones y estilos de vida humanos.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Perspectiva cultural sobre costumbres y normas.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Ciencia Política</div>
+            <div class="discipline-desc">Sistemas de gobierno, Estado, poder y decisiones colectivas.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Relaciones de poder y participación ciudadana.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Demografía</div>
+            <div class="discipline-desc">Análisis estadístico de poblaciones, movilidad y tasas vitales.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Datos cuantitativos sobre la estructura poblacional.</div>
+          </div>
+
+          <div class="discipline-card">
+            <div class="discipline-title">Geografía Humana</div>
+            <div class="discipline-desc">Comunidades, cultura y su interacción con el espacio territorial.</div>
+            <div class="discipline-rel"><span>Vínculo:</span> Condicionamiento territorial de las relaciones sociales.</div>
+          </div>
+
+        </div>
       </div>
-<div class="card references-card">
-  <h4>📚 Citas y Fuentes Bibliográficas</h4>
-  <ul class="references-list">
-    <li>Bunge, M. (2014). <cite>La ciencia: su método y su filosofía</cite>. Editorial Sudamericana.</li>
-  </ul>
-</div>
-      <div class="module-nav">
-        <a href="index.html" class="btn-nav">&larr; Volver al Inicio</a>
-        <a href="modulo2.html" class="btn-nav btn-next">Módulo 2 &rarr;</a>
+
+      <!-- BOTONES DE NAVEGACIÓN -->
+      <div class="module-nav" style="margin-top: 2rem;">
+        <a href="index.html" class="btn-nav">&larr; Inicio</a>
+        <a href="modulo2.html" class="btn-nav">Módulo 2 &rarr;</a>
       </div>
     </section>
   </main>
